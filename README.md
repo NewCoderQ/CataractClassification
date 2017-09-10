@@ -258,4 +258,4 @@
 [9]: https://github.com/NewCoderQ/CataractClassification/blob/master/src-code/extractColorFeature.py "extractColorFeature.py"
 [10]: https://github.com/NewCoderQ/CataractClassification/blob/master/src-code/extractGLCMFeature.py "extractGLCMFeature.py"
 [11]: https://github.com/NewCoderQ/CataractClassification/blob/master/src-code/extractWaveFeature.py "extractWaveFeature.py"
-https://github.com/NewCoderQ/CataractClassification/blob/master/src-code/normalization/GAImplement_improved.py "GAImplement_improved.py" 
+[12]: https://github.com/NewCoderQ/CataractClassification/blob/master/src-code/normalization/GAImplement_improved.py "GAImplement_improved.py" 
