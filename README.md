@@ -221,6 +221,8 @@
 
 ## <div id = "5">5、 代码运行方式</div>
 ### 5.1 训练阶段
+<font color = "red">注意，在github上，我没有上传图片，所以需要自己设置图片路径，一般设置成项目根目录就可以，不然可能会出错，需要修改代码</font>
+
 项目根目录下**./ImageProcess/**运行：
 	
 	python main_extractFeature.py
