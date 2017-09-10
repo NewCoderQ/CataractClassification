@@ -18,11 +18,12 @@ import pickle								# 数据保存与重构
 # 提取图像的三层小波分解系数
 def getWaveCoe(img):						# 参数：图像
 	feature_list = []						# 创建一个列表，用来存放小波系数频数
-	img_wave_result = pywt.wavedec2(img, 'haar', level = 3)		# 对灰度图像进行小波三层小波分解
-																# 选用haar小波基
-																# 返回值为一个list，每一层的高频都是包含在一个tuple中
-																# 例如三层的话返回为 [cA3, (cH3, cV3, cD3), (cH2, cV2, cD2)， (cH1, cV1, cD1)]
-																# 其中cA3为第三层小波分解的低频系数
+	img_wave_result = pywt.wavedec2(img, 'haar', level = 3)		
+	# 对灰度图像进行小波三层小波分解
+	# 选用haar小波基
+	# 返回值为一个list，每一层的高频都是包含在一个tuple中
+	# 例如三层的话返回为 [cA3, (cH3, cV3, cD3), (cH2, cV2, cD2)， (cH1, cV1, cD1)]
+	# 其中cA3为第三层小波分解的低频系数
 
 	# 对三层小波分解后的系数进行分析
 	l3 = img_wave_result[0]							# 第三次小波分解的低频部分
@@ -31,7 +32,7 @@ def getWaveCoe(img):						# 参数：图像
 	h2 = img_wave_result[2]							# 第二次小波分解的高频部分，tuple
 	h2_h = h2[0]; h2_v = h2[1]; h2_d = h2[2]
 	# 由于维数较大，计算比较复杂，被舍弃
-	# h1 = img_wave_result[3]							# 第一次小波分解的高频部分，tuple
+	# h1 = img_wave_result[3]						# 第一次小波分解的高频部分，tuple
 	# h1_h = h1[0]; h1_v = h1[1]; h1_d = h1[2]
 	
 	print "calculate the 3rd horizon..."

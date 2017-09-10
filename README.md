@@ -12,6 +12,7 @@
 * **[代码运行方式](#5)**
 
 ## <div id = "1">1、 图像分割<div>
+[preProcess.py][8]
 将原图像均匀地分成 **4 * 4** 的 **16**份子图像，又由于视神经盘是判断白内障的一个重要依据，所以在图像分块的同时，将含有视神经盘的子图像单独取出，这样原图像就被分割成了 **17** 份子图像(图中红色方框圈出来的区域就是重复采样的视神经盘的部分)，然后依次对着 **17** 份子图像进行特征提取。
 
 <div align = "center">
@@ -50,13 +51,13 @@
 
 在完成了第一步图像分割之后，我们得到 **17** 子图像，这时需要对这**17**块子图像依次进行特征提取，提取的特征有：
 
-- **颜色特征**
-- **纹理特征**
-- **小波特征**
+- **[颜色特征](#A)**
+- **[纹理特征](#B)**
+- **[小波特征](#C)**
 
-### 2.1 颜色特征
+### <div id = "A">2.1 颜色特征</div>
 
-由于我们的原始图像就是灰度图，不是彩色图，这样就不能分别提取RGB分量来做颜色特征的计算，所以这里我们采用[直方图均衡化][1]之后的图像来进行图像颜色特征的计算。在实现中，我们直接利用 **python + opencv** 来完成对图像进行直方图均衡化的工作。直方图均衡化之后的图像如图所示(下图中左图为均衡化之前的图像，右图为均衡化之后的图像)，由图中可以看出，均衡化之后图像的对比度增强了，这样会更容易区分图像所属的类别。
+[extractColorFeature.py][9]由于我们的原始图像就是灰度图，不是彩色图，这样就不能分别提取RGB分量来做颜色特征的计算，所以这里我们采用[直方图均衡化][1]之后的图像来进行图像颜色特征的计算。在实现中，我们直接利用 **python + opencv** 来完成对图像进行直方图均衡化的工作。直方图均衡化之后的图像如图所示(下图中左图为均衡化之前的图像，右图为均衡化之后的图像)，由图中可以看出，均衡化之后图像的对比度增强了，这样会更容易区分图像所属的类别。
 
 <div align = "center">
 	<img src = "md_image/1.jpg" height = "350" width = "350">
@@ -77,8 +78,8 @@
 	# 将图像的颜色特征保存为.pkl文件
 	pickle.dump(histograms, open(fea_dir +'color_feature.pkl', 'wb'))
 
-### 2.2 纹理特征
-纹理特征，我们选用的是[灰度共生矩阵GLCM][2]，算法实现是参照[这里][3]，源码为**C++**编写，这里我们自己改成了**python**编写的。由于原始图像是256个灰度级，这样每个灰度共生矩阵就是**256 * 256**的维度，计算量大，所以我们这里先对灰度级进行降级操作，将灰度级别从**256**级降为**16**级，这样灰度共生矩阵就降为**16 * 16**的维度，减少计算量。
+### <div id = "B">2.2 纹理特征</div>
+[extractGLCMFeature.py][10]纹理特征，我们选用的是[灰度共生矩阵GLCM][2]，算法实现是参照[这里][3]，源码为**C++**编写，这里我们自己改成了**python**编写的。由于原始图像是256个灰度级，这样每个灰度共生矩阵就是**256 * 256**的维度，计算量大，所以我们这里先对灰度级进行降级操作，将灰度级别从**256**级降为**16**级，这样灰度共生矩阵就降为**16 * 16**的维度，减少计算量。
 	
 	# 对图像的灰度值进行降维，为了简化之后的灰度共生矩阵的计算	23.4s
 	def decDim(src_array):									# 引用传值
@@ -120,8 +121,8 @@
 	
 	pickle.dump(GLCM_feature, open(fea_dir + 'GLCM_feature.pkl', 'wb'))
 
-### 2.3 小波特征
-小波变换，我们并没有完成变换基本的算法实现，而是调用的第三方库[pywt][4]来完成小波变换以及小波系数的提取，这里我们提取的是**第二、三层小波变换的水平、垂直和对角线方向上的小波系数**。
+### <div id = "C">2.3 小波特征</div>
+[extractWaveFeature.py][11]小波变换，我们并没有完成变换基本的算法实现，而是调用的第三方库[pywt][4]来完成小波变换以及小波系数的提取，这里我们提取的是**第二、三层小波变换的水平、垂直和对角线方向上的小波系数**。
 
 	# 提取图像的三层小波分解系数
 	def getWaveCoe(img):						# 参数：图像
@@ -182,7 +183,7 @@
 	pickle.dump(wave_feature, open(fea_dir + 'wave_feature.pkl', 'wb'))	
 
 ## <div id = "3">3、 对特征用遗传算法进行加权<div>
-[遗传算法][5]，是一种通过模拟自然进化过程搜索最优解的方法。在这里，我们利用遗传算法来寻找特征之间的最有权值，以使得最后预测准确度达到最佳。
+[GAImplement_improved.py][12][遗传算法][5]，是一种通过模拟自然进化过程搜索最优解的方法。在这里，我们利用遗传算法来寻找特征之间的最有权值，以使得最后预测准确度达到最佳。
 
 	color_normal_list = [x * weight[0] for x in color_normal_list]
 	GLCM_normal_list = [x * weight[1] for x in GLCM_normal_list]
@@ -251,3 +252,8 @@
 [5]: https://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&mid=2650729598&idx=1&sn=7d68cc7a009d616545d7afd983ee9c63&chksm=871b2800b06ca116eaf8236cdeb8a3e56c1169a8629b9a72a363121a695d45a7c2c06cbddecf&mpshare=1&scene=1&srcid=080563cfVbTyTFny4mJNSUdE#rd "遗传算法"
 [6]: http://www.dataguru.cn/thread-371987-1-1.html "Support Vector Machine"
 [7]: https://github.com/cjlin1/libsvm "libsvm"
+[8]: https://github.com/NewCoderQ/CataractClassification/blob/master/src-code/preProcess.py "preProcess.py"
+[9]: https://github.com/NewCoderQ/CataractClassification/blob/master/src-code/extractColorFeature.py "extractColorFeature.py"
+[10]: https://github.com/NewCoderQ/CataractClassification/blob/master/src-code/extractGLCMFeature.py "extractGLCMFeature.py"
+[11]: https://github.com/NewCoderQ/CataractClassification/blob/master/src-code/extractWaveFeature.py "extractWaveFeature.py"
+https://github.com/NewCoderQ/CataractClassification/blob/master/src-code/normalization/GAImplement_improved.py "GAImplement_improved.py" 
