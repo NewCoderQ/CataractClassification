@@ -79,7 +79,7 @@ def getWaveFreq(wave_mat):
 				wave_freq[8] += 1
 			elif(wave_mat[i][j] >= 360 and wave_mat[i][j] < 450):
 				wave_freq[9] += 1
-	print 'wave_freq', wave_freq
+	# print 'wave_freq', wave_freq
 	return wave_freq 								# 将频数矩阵返回
 
 # 将执行步骤编写成一个函数，方便其他模块调用
