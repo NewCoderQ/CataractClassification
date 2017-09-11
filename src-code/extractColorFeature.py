@@ -41,7 +41,6 @@ def getGrayCount(img_dir, img_path, fea_dir):
 	for path in img_path:
 		i = i + 1
 		# print path
-		print "%d / %d" % (i, len(img_path))
 		split_hist_list = list()		# 用来存放每个小图片的灰度信息
 		img = cv2.imread(img_dir + path, 0)		
 		# process each splited image
@@ -56,7 +55,9 @@ def getGrayCount(img_dir, img_path, fea_dir):
 		# 将灰度频率保存在一个字典中，键为图片的名称，值为图片的灰度频率列表
 		histograms[path.split('.')[0]] = np.array(split_hist_list) 					
 
-		print "the lenth of hist is %d." % len(split_hist_list)
+		if i % 50 == 0:
+			print "%d / %d" % (i, len(img_path))
+			print "the lenth of hist is %d." % len(split_hist_list)
 		# print histograms
 	# 使用pickle将python数据保存到文件
 	# 将特征字典以.pkl后缀名的形式存储在文件中

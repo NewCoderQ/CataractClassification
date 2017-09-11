@@ -20,31 +20,34 @@
 	<img src = "md_image/2.jpg" height = "300" width = "300">
 </div>
 
-	# split images into small images
-	'''
-		parameter:
-			img:array of a image
-	
-		return:
-			a array list of splited images 
-	'''
-	def splitImg(img):
-		split_imgs = list()				# 创建一个列表，用来存放分割完成的子图像
-		# img = cv2.imread(img_path, 0)
-		# print type(img)
-		split_imgs.append(img[:512, 512:1024])
-		split_imgs.append(img[:512, 1024:1536])
-		split_imgs.append(img[512:1024, 0:512])
-		split_imgs.append(img[512:1024, 512:1024])
-		split_imgs.append(img[512:1024, 1024:1536])
-		split_imgs.append(img[512:1024, 1536:2048])
-		split_imgs.append(img[1024:1536, 0:512])
-		split_imgs.append(img[1024:1536, 512:1024])
-		split_imgs.append(img[1024:1536, 1024:1536])
-		split_imgs.append(img[1024:1536, 1536:2048])
-		split_imgs.append(img[1536:2048, 512:1024])
-		split_imgs.append(img[1536:2048, 1024:1536])
-		return split_imgs
+```python
+# split images into small images
+'''
+	parameter:
+		img:array of a image
+
+	return:
+		a array list of splited images 
+'''
+def splitImg(img):
+	split_imgs = list()				# 创建一个列表，用来存放分割完成的子图像
+	# img = cv2.imread(img_path, 0)
+	# print type(img)
+	split_imgs.append(img[:512, 512:1024])
+	split_imgs.append(img[:512, 1024:1536])
+	split_imgs.append(img[512:1024, 0:512])
+	split_imgs.append(img[512:1024, 512:1024])
+	split_imgs.append(img[512:1024, 1024:1536])
+	split_imgs.append(img[512:1024, 1536:2048])
+	split_imgs.append(img[1024:1536, 0:512])
+	split_imgs.append(img[1024:1536, 512:1024])
+	split_imgs.append(img[1024:1536, 1024:1536])
+	split_imgs.append(img[1024:1536, 1536:2048])
+	split_imgs.append(img[1536:2048, 512:1024])
+	split_imgs.append(img[1536:2048, 1024:1536])
+	return split_imgs
+```
+
 这段代码描述的是将图像分割成**4 * 4**的小块图像。
 
 ## <div id = "2">2、 特征提取<div>
