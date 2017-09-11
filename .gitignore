@@ -1,3 +1,4 @@
 Environment-configure
 src-code/*.pyc
 src-code/test/
+src-code/split_features/
