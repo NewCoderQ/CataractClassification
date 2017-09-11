@@ -35,19 +35,19 @@ def getWaveCoe(img):						# 参数：图像
 	# h1 = img_wave_result[3]						# 第一次小波分解的高频部分，tuple
 	# h1_h = h1[0]; h1_v = h1[1]; h1_d = h1[2]
 	
-	print "calculate the 3rd horizon..."
+	# print "calculate the 3rd horizon..."
 	feature_list.extend(getWaveFreq(h3_h))
-	print "calculate the 3rd vertical..."
+	# print "calculate the 3rd vertical..."
 	feature_list.extend(getWaveFreq(h3_v))
-	print "calculate the 3rd diagonal..."
+	# print "calculate the 3rd diagonal..."
 	feature_list.extend(getWaveFreq(h3_d))
-	print "calculate the 2nd horizon..."
+	# print "calculate the 2nd horizon..."
 	feature_list.extend(getWaveFreq(h2_h))
-	print "calculate the 2nd vertical..."
+	# print "calculate the 2nd vertical..."
 	feature_list.extend(getWaveFreq(h2_v))
-	print "calculate the 2nd diagonal..."
+	# print "calculate the 2nd diagonal..."
 	feature_list.extend(getWaveFreq(h2_d))
-	print 'ndim:', len(feature_list)
+	# print 'ndim:', len(feature_list)
 	return feature_list 							# 将整合完成的小波系数频数列表返回
 	
 
@@ -101,7 +101,7 @@ def calcWaveFeature(img_dir, img_path, fea_dir):
 			j += 1
 			print i, '/', len(img_path), '/', j
 			split_wave_feature.extend(getWaveCoe(split_img))
-		print len(split_wave_feature)
+		# print len(split_wave_feature)
 		# print split_wave_feature
 		# 将小波系数频数保存在字典中，设置相应的键值
 		wave_feature[path.split('.')[0]] = split_wave_feature	
