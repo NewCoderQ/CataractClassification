@@ -1,1 +1,3 @@
 Environment-configure
+src-code/*.pyc
+src-code/test/
