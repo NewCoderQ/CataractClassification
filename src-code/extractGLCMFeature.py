@@ -141,8 +141,8 @@ def calcGLCMFeature(img_dir, img_paths, fea_dir):
 		split_feature_list = list()						# 用来存放分割图片的灰度共生矩阵特征
 		split_img_list = preProcess.splitImg(src_img)
 		for j in range(len(split_img_list)):
-			if i % 10 == 0:
-				print 'processing %d / %d / %d image' % ((i + 1), len(img_paths), (j + 1))
+			
+			print 'processing %d / %d / %d image' % ((i + 1), len(img_paths), (j + 1))
 			# 将原图像的尺寸缩小，由2048 * 2048变为512 * 512，缩短提取特征的时间
 			img = cv2.resize(split_img_list[j], (128, 128), interpolation = cv2.INTER_CUBIC)
 			# print "the size of dst_img is: ", img.shape
