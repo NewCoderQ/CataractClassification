@@ -19,9 +19,9 @@ def loadData():
 	# load .pkl file
 	print 'data loading...'
 	# color_feature
-	color_feature = pickle.load(open('./split_predict_features/color_feature.pkl', 'rb'))	
+	color_feature = pickle.load(open('../split_predict_features/color_feature.pkl', 'rb'))	
 	# GLCM_feature
-	GLCM_feature = pickle.load(open('./split_predict_features/GLCM_feature.pkl', 'rb'))
+	GLCM_feature = pickle.load(open('../split_predict_features/GLCM_feature.pkl', 'rb'))
 	# wave_feature
 	wave_feature = pickle.load(open('./split_predict_features/wave_feature.pkl', 'rb'))
 	print 'test data cost time:', time.time() - start_time, 's'
