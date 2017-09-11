@@ -1,22 +1,22 @@
 ## 运行环境配置过程中的一些错误以及解决方式
 ```	
 >>> import cv2
-	Traceback (most recent call last):
-	  File "<stdin>", line 1, in <module>
-	  File "/usr/local/lib/python2.7/dist-packages/cv2/__init__.py", line 9, in <module>
-	    from .cv2 import *
-	ImportError: libgthread-2.0.so.0: cannot open shared object file: No such file or directory
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/usr/local/lib/python2.7/dist-packages/cv2/__init__.py", line 9, in <module>
+    from .cv2 import *
+ImportError: libgthread-2.0.so.0: cannot open shared object file: No such file or directory
 
-	apt-get install libglib2.0-0:* 
-	
-	>>> import cv2
-	Traceback (most recent call last):
-	  File "<stdin>", line 1, in <module>
-	  File "/usr/local/lib/python2.7/dist-packages/cv2/__init__.py", line 9, in <module>
-	    from .cv2 import *
-	ImportError: libSM.so.6: cannot open shared object file: No such file or directory
-	
-	#apt-get install libSM*
+apt-get install libglib2.0-0:* 
+
+>>> import cv2
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/usr/local/lib/python2.7/dist-packages/cv2/__init__.py", line 9, in <module>
+    from .cv2 import *
+ImportError: libSM.so.6: cannot open shared object file: No such file or directory
+
+#apt-get install libSM*
 ```
 
 以上就步骤就完成了基础动态链接库的安装。
@@ -43,15 +43,10 @@ libsvn-python的配置和安装
 
 ```
 $ git clone https://github.com/cjlin1/libsvm
-
 $ cd libsvm
-
 $ make
-
 $ cd python
-
 $ make
-
 $ cp *.py /usr/lib/python2.7/dist-packages/  
 $ cd ..  
 $ cp libsvm.so.2 /usr/lib/python2.7/  
@@ -63,7 +58,6 @@ $ cp libsvm.so.2 /usr/lib/python2.7/
 python
 import svm
 import svmutil
-
 ```
 
 如果没有任何错误信息，即安装成功。
