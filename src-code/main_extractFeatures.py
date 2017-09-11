@@ -16,7 +16,7 @@ save_feature_path = './split_features/'
 img_path = preProcess.getImgPath()		# the file path of train images
 
 # 颜色特征
-extractColorFeature.getGrayCount(img_pre_path, img_path, save_feature_path)
+# extractColorFeature.getGrayCount(img_pre_path, img_path, save_feature_path)
 
 # GLCM特征
 extractGLCMFeature.calcGLCMFeature(img_pre_path, img_path, save_feature_path)
