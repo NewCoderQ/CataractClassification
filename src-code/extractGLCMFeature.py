@@ -18,7 +18,7 @@ import pickle
 
 # 对图像的灰度值进行降维，为了简化之后的灰度共生矩阵的计算	23.4s
 def decDim(src_array):									# 引用传值
-	print "decDim..."
+	# print "decDim..."
 	for i in range(src_array.shape[0]):					# 遍历行数
 		# print 'the %dth line' % i
 		for j in range(src_array.shape[1]):				# 遍历列数
@@ -34,7 +34,7 @@ def initMat():											# 生成一个16 * 16的全零矩阵
 
 # 计算水平方向上的灰度共生矩阵
 def calcHorisonGLCM(img):
-	print 'calculate horison GLAM...'
+	# print 'calculate horison GLAM...'
 	dst_mat = initMat()									# 初始化灰度共生矩阵
 	height, width = img.shape							# 获取输入图像的尺寸
 	# 遍历图像中每个像素点的像素值
@@ -48,7 +48,7 @@ def calcHorisonGLCM(img):
 
 # 计算垂直方向上的灰度共生矩阵
 def calcVerticalGLCM(img):
-	print 'calculate vertical GLAM...'
+	# print 'calculate vertical GLAM...'
 	dst_mat = initMat()									# 初始化灰度共生矩阵
 	height, width = img.shape
 	for i in range(height - 1):							# 此处注意下标越界错误
@@ -60,7 +60,7 @@ def calcVerticalGLCM(img):
 
 # 计算45度方向上的灰度共生矩阵
 def calc45GLCM(img):
-	print 'calculate 45 GLCM...'
+	# print 'calculate 45 GLCM...'
 	dst_mat = initMat()									# 初始化灰度共生矩阵
 	height, width = img.shape							# 获得图像像素矩阵的维度
 	for i in range(height - 1):
@@ -72,7 +72,7 @@ def calc45GLCM(img):
 
 # 计算135度方向上的灰度共生矩阵
 def calc135GLCM(img):
-	print 'calculete 135 GLCM...'
+	# print 'calculete 135 GLCM...'
 	dst_mat = initMat()									# 初始化灰度共生矩阵
 	height, width = img.shape
 	for i in range(height - 1):
@@ -145,7 +145,7 @@ def calcGLCMFeature(img_dir, img_paths, fea_dir):
 				print 'processing %d / %d / %d image' % ((i + 1), len(img_paths), (j + 1))
 			# 将原图像的尺寸缩小，由2048 * 2048变为512 * 512，缩短提取特征的时间
 			img = cv2.resize(split_img_list[j], (128, 128), interpolation = cv2.INTER_CUBIC)
-			print "the size of dst_img is: ", img.shape
+			# print "the size of dst_img is: ", img.shape
 
 			#*****************************************
 			# only for test
@@ -176,7 +176,7 @@ def calcGLCMFeature(img_dir, img_paths, fea_dir):
 			# print "feature_list:\n", feature
 			split_feature_list.extend(feature)
 		GLCM_feature[img_path.split('.')[0]] = split_feature_list 						# 将图像的灰度共生矩阵特征保存在字典中
-		print len(GLCM_feature)
+		# print len(GLCM_feature)
 	# 最后，将提取的灰度共生矩阵的特征字典存储在.pkl文件中
 	pickle.dump(GLCM_feature, open(fea_dir + 'GLCM_feature.pkl', 'wb'))
 
