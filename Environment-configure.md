@@ -50,18 +50,24 @@ Traceback (most recent call last):
   File "/usr/local/lib/python2.7/dist-packages/cv2/__init__.py", line 9, in <module>
     from .cv2 import *
 ImportError: libgthread-2.0.so.0: cannot open shared object file: No such file or directory
+```
+**解决方法**：
 
-apt-get install libglib2.0-0:* 
+`apt-get install libglib2.0-0:*` 
 
+
+```
 >>> import cv2
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
   File "/usr/local/lib/python2.7/dist-packages/cv2/__init__.py", line 9, in <module>
     from .cv2 import *
 ImportError: libSM.so.6: cannot open shared object file: No such file or directory
-
-#apt-get install libSM*
 ```
+**解决方法**：
+
+`#apt-get install libSM*`
+
 
 以上就步骤就完成了基础动态链接库的安装。
 
