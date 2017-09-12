@@ -8,7 +8,7 @@
 ```
 ~# which pip
 /usr/local/bin/pip
-~# vim /usr/local/bin/pip
+~# cat /usr/local/bin/pip
 ```
 出现以下内容：
 ```
