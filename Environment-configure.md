@@ -86,7 +86,7 @@ Cython完成之后，再次执行下面这条语句来安装pywt
 
 `/pywt# pip2 install .`
 
-libsvn-python的配置和安装
+### libsvm-python的配置和安装
 
 * 首先下载[libsvm](https://github.com/cjlin1/libsvm)
 
