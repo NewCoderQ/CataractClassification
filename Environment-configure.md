@@ -35,11 +35,13 @@ if __name__ == '__main__':
 # python	# 进入python交互界面
 >>> import numpy
 ```
-如果上述命令没有任何提示，及为安装成功
+如果上述命令没有任何提示，即为安装成功
 
 ### opencv-python安装
 命令：
 `pip install opencv-python`
+
+### 接下来就是一些错误的解决方法
 
 ```	
 >>> import cv2
@@ -63,21 +65,26 @@ ImportError: libSM.so.6: cannot open shared object file: No such file or directo
 
 以上就步骤就完成了基础动态链接库的安装。
 
+### 安装小波变换的第三方库pywt
+
+出现这个错误即为没有安装pywt，提示没有这个模块：
+
 `ImportError: No module named pywt`
 
 执行以下命令从github上拷贝到本地
 
-`root@8b62069d93d5:~/lib_install# git clone https://github.com/NewCoderQ/pywt`
+`# git clone https://github.com/NewCoderQ/pywt`
 
 执行下面的命令来安装pywt
 
 	
-上面的错误消息提示在安装PyWavelets之前需要安装Cython
-执行下面这句命令来完成Cython的安装
+在安装PyWavelets之前需要安装Cython执行下面这句命令来完成Cython的安装
+
 `pip2 install Cython`
 
 Cython完成之后，再次执行下面这条语句来安装pywt
-`root@8b62069d93d5:~/lib_install/pywt# pip2 install .`
+
+`/pywt# pip2 install .`
 
 libsvn-python的配置和安装
 
@@ -97,9 +104,9 @@ $ cp libsvm.so.2 /usr/lib/python2.7/
 上述命令完成之后，用以下命令进行测试，查看是否安装成功：
 
 ```
-python
-import svm
-import svmutil
+# python
+>>> import svm
+>>> import svmutil
 ```
 
 如果没有任何错误信息，即安装成功。
