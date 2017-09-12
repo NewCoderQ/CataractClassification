@@ -228,7 +228,7 @@ def splitImg(img):
 
 项目根目录下**./ImageProcess/**运行：
 	
-	python main_extractFeature.py
+	python main_extractFeatures.py
 这句命令执行完成之后，提取所有训练图像的特征，并且按照特征类别分别存储在pkl文件中。
 	
 	python main_extractPredictFeatures.py
