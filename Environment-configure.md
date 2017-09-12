@@ -1,4 +1,40 @@
 ## 运行环境配置过程中的一些错误以及解决方式
+
+### pip安装
+此处不再赘述，需要确认的是：自己的pip是否和默认的python是同一个版本
+
+确认方法：
+
+```
+~# which pip
+/usr/local/bin/pip
+~# vim /usr/local/bin/pip
+```
+出现以下内容：
+```
+#!/usr/bin/python3
+
+# -*- coding: utf-8 -*-
+import re
+import sys
+
+from pip import main
+
+if __name__ == '__main__':
+    sys.argv[0] = re.sub(r'(-script\.pyw|\.exe)?$', '', sys.argv[0])
+    sys.exit(main())
+
+```
+检查第一行的python*是否和系统默认的python是同一个版本。
+
+### numpy安装
+命令：
+`pip install numpy`
+
+### opencv-python安装
+命令：
+`pip install opencv-python`
+
 ```	
 >>> import cv2
 Traceback (most recent call last):
