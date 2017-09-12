@@ -8,7 +8,7 @@
 ```
 ~# which pip
 /usr/local/bin/pip
-~# cat /usr/local/bin/pip
+~# cat /usr/local/bin/pip		# 这个地方的路径按照自己服务器显示的来
 ```
 出现以下内容：
 ```
