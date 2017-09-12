@@ -66,7 +66,7 @@ ImportError: libSM.so.6: cannot open shared object file: No such file or directo
 ```
 **解决方法**：
 
-`#apt-get install libSM*`
+`apt-get install libSM*`
 
 
 以上就步骤就完成了基础动态链接库的安装。
