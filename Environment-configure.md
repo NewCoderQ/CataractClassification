@@ -94,10 +94,10 @@ Cython完成之后，再次执行下面这条语句来安装pywt
 
 ### libsvm-python的配置和安装
 
-* 首先下载[libsvm](https://github.com/cjlin1/libsvm)
+* [libsvm](https://github.com/cjlin1/libsvm)
 
 ```
-$ git clone https://github.com/cjlin1/libsvm
+$ git clone https://github.com/cjlin1/libsvm	# 将libsvmclone到本地
 $ cd libsvm
 $ make
 $ cd python
