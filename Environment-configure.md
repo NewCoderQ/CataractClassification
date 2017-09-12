@@ -30,6 +30,12 @@ if __name__ == '__main__':
 ### numpy安装
 命令：
 `pip install numpy`
+安装完成确认方法：
+```
+# python	# 进入python交互界面
+>>> import numpy
+```
+如果上述命令没有任何提示，及为安装成功
 
 ### opencv-python安装
 命令：
