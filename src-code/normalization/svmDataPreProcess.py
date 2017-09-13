@@ -11,7 +11,7 @@ import normalFeatures	# normalization
 import os				# system operation
 import time
 
-path_date = '05-17'
+path_date = '.'
 
 # load test data
 def loadData():
