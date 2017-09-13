@@ -156,8 +156,8 @@ def fitness(color_feature, GLCM_feature, wave_feature, color, GLCM, wave, index)
 		# os.system(cmd)
 		# print 'normalization done!'
 		# y, x = svm_read_problem('05-17/test_data/test_rawed_data')
-		y, x = svm_read_problem('05-17/test_data/test_data')
-		model = svm_load_model('05-17/train_data/model_weight')
+		y, x = svm_read_problem('./test_data/test_data')
+		model = svm_load_model('./train_data/model_weight')
 		p_label, p_acc, p_val = svm_predict(y, x, model)
 
 		Accuracy.append(p_acc[0])					# 将tuple p_acc的第一个元素(准确率)添加到Accuracy列表中
