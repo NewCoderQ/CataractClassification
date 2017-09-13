@@ -12,7 +12,7 @@ import os						# directory operation
 import normalFeatures			# normalization
 import time 					# analysis time
 
-path_date = '05-17'			# define the directory
+path_date = '.'			# define the directory
 
 
 def loadData():
