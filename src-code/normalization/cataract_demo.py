@@ -2,7 +2,7 @@
 # @Author: Zhiqiang
 # @Date:   2017-09-18 22:41:33
 # @Last Modified by:   funny_QZQ
-# @Last Modified time: 2017-09-19 00:11:52
+# @Last Modified time: 2017-09-19 00:13:47
 
 # import cv2
 import sys
@@ -54,6 +54,7 @@ def extract_feature(img_dir):
 
 if __name__ == '__main__':
 	extract_feature('../test/val/')
+	train_model()
 	
 
 
