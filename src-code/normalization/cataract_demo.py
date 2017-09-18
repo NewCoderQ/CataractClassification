@@ -2,7 +2,7 @@
 # @Author: Zhiqiang
 # @Date:   2017-09-18 22:41:33
 # @Last Modified by:   funny_QZQ
-# @Last Modified time: 2017-09-19 00:34:23
+# @Last Modified time: 2017-09-19 00:38:36
 
 # import cv2
 import sys
@@ -76,7 +76,13 @@ def generate_test_data(weight):
 			data_str += '\n'
 			test_file.write(data_str)	
 
-
+def classification():
+	print('test image classification...')
+	y, x = svmutil.svm_read_problem('./show_data/test_data')
+	print('model loading...')
+	model = svm_load_model('./train_data/model_weight')
+	p_label, p_acc, p_val = svmutil.svm_predict(y, x, model)
+	print(p_label)
 
 def extract_feature(img_dir):
 	'''
