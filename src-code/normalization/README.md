@@ -15,6 +15,7 @@
 `python cataract_demo.py`
 
 运行过程中会提示用户输入没有后缀名的眼底图像ID，测试图像数据被保存在父级目录的test/val文件夹下。
+
 运行截图如下：
 ```
 # python cataract_demo.py
