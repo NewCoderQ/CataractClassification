@@ -2,7 +2,7 @@
 # @Author: Zhiqiang
 # @Date:   2017-09-18 22:41:33
 # @Last Modified by:   funny_QZQ
-# @Last Modified time: 2017-09-19 00:14:35
+# @Last Modified time: 2017-09-19 00:27:05
 
 # import cv2
 import sys
@@ -20,11 +20,34 @@ def train_model():
 		Returns:
 			None
 	'''
-
 	color, GLCM, wave = svmTrainGetWeight.loadData()
 	svmTrainGetWeight.generateData_4(color, GLCM, wave, [0.13637379083,	0.299172949594,	6.65003458262])
 	print('model training...')
 	svmTrainGetWeight.svmTrain_4()
+
+def generate_test_data():
+	'''
+		generate test for image classification
+
+		Returns:
+			None
+	'''
+	# load data from .pkl
+	print('load test data...')
+	# color_feature
+	color_feature = pickle.load(open('./show_data/color_feature.pkl', 'rb'))	
+	# GLCM_feature
+	GLCM_feature = pickle.load(open('./show_data/GLCM_feature.pkl', 'rb'))
+	# wave_feature
+	wave_feature = pickle.load(open('./show_data/wave_feature.pkl', 'rb'))
+
+	# generate SVM data
+	print('generate SVM data...')
+
+	keys = color_feature.keys()
+	for key in keys:
+		print(key)
+
 
 
 def extract_feature(img_dir):
@@ -54,7 +77,8 @@ def extract_feature(img_dir):
 
 if __name__ == '__main__':
 	extract_feature('../test/val/')
-	train_model()
+	# train_model()
+	generate_test_data()
 	
 
 
