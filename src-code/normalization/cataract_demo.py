@@ -2,7 +2,7 @@
 # @Author: Zhiqiang
 # @Date:   2017-09-18 22:41:33
 # @Last Modified by:   Zhiqiang
-# @Last Modified time: 2017-09-18 23:00:55
+# @Last Modified time: 2017-09-18 23:02:57
 
 
 def extract_feature(img_path):
@@ -16,8 +16,8 @@ def extract_feature(img_path):
 		Returns:
 			None
 	'''
-	img_name = raw_input("Please enter the name of the image for classifying:")
-	img_path += img_name
+	img_name = raw_input("Please enter the name of the image for classifying(without the ext):")
+	img_path += img_name + '.jpg'
 	print(img_path)
 
 
