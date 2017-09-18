@@ -55,7 +55,7 @@ def getGrayCount(img_dir, img_path, fea_dir):
 			split_hist_list.extend(hist)
 		# 将灰度频率保存在一个字典中，键为图片的名称，值为图片的灰度频率列表
 		histograms[path.split('.')[0]] = np.array(split_hist_list) 		
-		print(histograms)			
+		# print(histograms)			
 
 		if i % 50 == 0:
 			print "%d / %d" % (i, len(img_path))
@@ -64,7 +64,7 @@ def getGrayCount(img_dir, img_path, fea_dir):
 	# 使用pickle将python数据保存到文件
 	# 将特征字典以.pkl后缀名的形式存储在文件中
 	pickle.dump(histograms, open(fea_dir +'color_feature.pkl', 'wb'))
-	print('Done!')
+	# print('Done!')
 	
 	# 将.pkl文件中的数据重构成python数据
 	# color_feature = pickle.load(open(fea_dir + 'color_feature.pkl', 'rb'))
