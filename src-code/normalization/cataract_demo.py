@@ -1,12 +1,15 @@
 # -*- coding: utf-8 -*-
 # @Author: Zhiqiang
 # @Date:   2017-09-18 22:41:33
-# @Last Modified by:   Zhiqiang
-# @Last Modified time: 2017-09-18 23:14:53
+# @Last Modified by:   funny_QZQ
+# @Last Modified time: 2017-09-18 23:27:59
 
-import cv2
+# import cv2
+import sys
+sys.path.append('../')
+import extractColorFeature
 
-def extract_feature(img_path):
+def extract_feature(img_dir):
 	'''
 			根据用户输入的眼底图像的名称
 			来提取该图像的三个特征，并且保存在pkl文件中
@@ -19,9 +22,8 @@ def extract_feature(img_path):
 	'''
 	# 提示用户输入眼底图像的名字，不包含后缀名
 	img_name = raw_input("Please enter the name of the image for classifying(without the ext):")
-	img_path += img_name + '.jpg'
-	test_img = cv2.imread(img_path, 0)				# read image
-	print(type(test_img))
+	img_name += '.jpg'
+	extractColorFeature.getGrayCount(img_dir, img_name, 'show_data')
 
 
 

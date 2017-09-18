@@ -39,6 +39,7 @@ def getGrayCount(img_dir, img_path, fea_dir):
 	histograms = {}
 	i = 0
 	for path in img_path:
+		print(path)
 		i = i + 1
 		# print path
 		split_hist_list = list()		# 用来存放每个小图片的灰度信息
