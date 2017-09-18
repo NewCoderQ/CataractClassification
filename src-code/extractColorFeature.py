@@ -64,6 +64,7 @@ def getGrayCount(img_dir, img_path, fea_dir):
 	# 使用pickle将python数据保存到文件
 	# 将特征字典以.pkl后缀名的形式存储在文件中
 	pickle.dump(histograms, open(fea_dir +'color_feature.pkl', 'wb'))
+	print('Done!')
 	
 	# 将.pkl文件中的数据重构成python数据
 	# color_feature = pickle.load(open(fea_dir + 'color_feature.pkl', 'rb'))
