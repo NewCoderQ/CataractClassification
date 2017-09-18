@@ -2,8 +2,9 @@
 # @Author: Zhiqiang
 # @Date:   2017-09-18 22:41:33
 # @Last Modified by:   Zhiqiang
-# @Last Modified time: 2017-09-18 23:02:57
+# @Last Modified time: 2017-09-18 23:07:34
 
+import cv2
 
 def extract_feature(img_path):
 	'''
@@ -16,9 +17,13 @@ def extract_feature(img_path):
 		Returns:
 			None
 	'''
+	# 提示用户输入眼底图像的名字，不包含后缀名
 	img_name = raw_input("Please enter the name of the image for classifying(without the ext):")
 	img_path += img_name + '.jpg'
-	print(img_path)
+	test_img = cv2.imread(img_name)
+	print(test_img.shape)
+
+
 
 
 
