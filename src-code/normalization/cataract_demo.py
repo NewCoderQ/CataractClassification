@@ -2,7 +2,7 @@
 # @Author: Zhiqiang
 # @Date:   2017-09-18 22:41:33
 # @Last Modified by:   funny_QZQ
-# @Last Modified time: 2017-09-18 23:27:59
+# @Last Modified time: 2017-09-18 23:30:19
 
 # import cv2
 import sys
@@ -23,7 +23,7 @@ def extract_feature(img_dir):
 	# 提示用户输入眼底图像的名字，不包含后缀名
 	img_name = raw_input("Please enter the name of the image for classifying(without the ext):")
 	img_name += '.jpg'
-	extractColorFeature.getGrayCount(img_dir, img_name, 'show_data')
+	extractColorFeature.getGrayCount(img_dir, [img_name], 'show_data')
 
 
 
