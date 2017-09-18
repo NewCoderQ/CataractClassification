@@ -54,7 +54,8 @@ def getGrayCount(img_dir, img_path, fea_dir):
 			hist = histr / sum(histr)								# 计算每个灰度值出现的频率
 			split_hist_list.extend(hist)
 		# 将灰度频率保存在一个字典中，键为图片的名称，值为图片的灰度频率列表
-		histograms[path.split('.')[0]] = np.array(split_hist_list) 					
+		histograms[path.split('.')[0]] = np.array(split_hist_list) 		
+		print(histograms)			
 
 		if i % 50 == 0:
 			print "%d / %d" % (i, len(img_path))
