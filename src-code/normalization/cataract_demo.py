@@ -2,7 +2,7 @@
 # @Author: Zhiqiang
 # @Date:   2017-09-18 22:41:33
 # @Last Modified by:   funny_QZQ
-# @Last Modified time: 2017-09-18 23:48:05
+# @Last Modified time: 2017-09-18 23:51:15
 
 # import cv2
 import sys
@@ -26,8 +26,11 @@ def extract_feature(img_dir):
 	img_name = raw_input("Please enter the name of the image for classifying(without the ext):")
 	img_name += '.jpg'
 	# 提取测试图像的颜色特征，并且将其保存在show_data文件夹下面的.pkl文件中
+	print('提取图像的颜色特征：')
 	extractColorFeature.getGrayCount(img_dir, [img_name], 'show_data/')
+	print('提取图像的纹理特征：')
 	extractGLCMFeature.calcGLCMFeature(img_dir, [img_name], 'show_data/')
+	print('提取图像的小波特征：')
 	extractWaveFeature.calcWaveFeature(img_dir, [img_name], 'show_data/')
 
 
