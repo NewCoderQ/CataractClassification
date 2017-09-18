@@ -2,7 +2,7 @@
 # @Author: Zhiqiang
 # @Date:   2017-09-18 22:41:33
 # @Last Modified by:   funny_QZQ
-# @Last Modified time: 2017-09-19 00:27:57
+# @Last Modified time: 2017-09-19 00:32:27
 
 # import cv2
 import sys
@@ -26,7 +26,7 @@ def train_model():
 	print('model training...')
 	svmTrainGetWeight.svmTrain_4()
 
-def generate_test_data():
+def generate_test_data(weight):
 	'''
 		generate test for image classification
 
@@ -46,8 +46,34 @@ def generate_test_data():
 	print('generate SVM data...')
 
 	keys = color_feature.keys()
-	for key in keys:
-		print(key)
+	with open('./show_data/test_data', 'wb') as test_file:
+		for key in keys:
+			data_str = str(100) + ' '		# 此处的100 是可以随便标注，本来应该是正确标签的位置
+			# color feature
+			color_value_list = list(color_feature[key])			# ndarray ——> list
+			color_normal_list = normalFeatures.normalFeatures(color_value_list)		# normalization
+			color_normal_list = [x * weight[0] for x in color_normal_list]			# 加权
+			i = 0							# src-data index
+			for item in color_normal_list:
+				i += 1
+				data_str = data_str + str(i) + ":" + str(item) + " "
+			# GLCM feature
+			GLCM_value_list = list(GLCM_feature[key])
+			GLCM_normal_list = normalFeatures.normalFeatures(GLCM_value_list)
+			GLCM_normal_list = [x * weight[1] for x in GLCM_normal_list]
+			for item in GLCM_normal_list:
+				i += 1
+				data_str = data_str + str(i) + ":" + str(item) + " "
+			# wave feature
+			wave_value_list = list(wave_feature[key])
+			wave_normal_list = normalFeatures.normalFeatures(wave_value_list)
+			wave_normal_list = [x * weight[2] for x in wave_normal_list]
+			for item in wave_normal_list:
+				i += 1
+				data_str = data_str + str(i) + ":" + str(item) + " "
+
+			data_str += '\n'
+			file.write(data_str)	
 
 
 
@@ -79,7 +105,7 @@ def extract_feature(img_dir):
 if __name__ == '__main__':
 	extract_feature('../test/val/')
 	# train_model()
-	generate_test_data()
+	generate_test_data([0.13637379083,	0.299172949594,	6.65003458262])
 	
 
 
