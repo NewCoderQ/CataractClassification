@@ -2,7 +2,7 @@
 # @Author: Zhiqiang
 # @Date:   2017-09-18 22:41:33
 # @Last Modified by:   funny_QZQ
-# @Last Modified time: 2017-09-19 00:39:24
+# @Last Modified time: 2017-09-19 00:40:06
 
 # import cv2
 import sys
@@ -80,7 +80,7 @@ def classification():
 	print('test image classification...')
 	y, x = svmutil.svm_read_problem('./show_data/test_data')
 	print('model loading...')
-	model = svm_load_model('./train_data/model_weight')
+	model = svmutil.svm_load_model('./train_data/model_weight')
 	p_label, p_acc, p_val = svmutil.svm_predict(y, x, model)
 	print(p_label)
 
