@@ -2,7 +2,7 @@
 # @Author: Zhiqiang
 # @Date:   2017-09-18 22:41:33
 # @Last Modified by:   funny_QZQ
-# @Last Modified time: 2017-09-19 00:40:06
+# @Last Modified time: 2017-09-19 00:45:41
 
 # import cv2
 import sys
@@ -82,7 +82,15 @@ def classification():
 	print('model loading...')
 	model = svmutil.svm_load_model('./train_data/model_weight')
 	p_label, p_acc, p_val = svmutil.svm_predict(y, x, model)
-	print(p_label)
+	for label in p_label:
+		if int(label) == 0:
+			print('正常 眼底图像')
+		elif int(label) == 1:
+			print('轻度白内障 眼底图像')
+		elif int(label) == 2:
+			print('中度白内障 眼底图像')
+		else:
+			print('重度白内障 眼底图像')
 
 def extract_feature(img_dir):
 	'''
