@@ -2,7 +2,7 @@
 # @Author: Zhiqiang
 # @Date:   2017-09-18 22:41:33
 # @Last Modified by:   funny_QZQ
-# @Last Modified time: 2017-09-19 00:38:36
+# @Last Modified time: 2017-09-19 00:39:24
 
 # import cv2
 import sys
@@ -113,6 +113,7 @@ if __name__ == '__main__':
 	extract_feature('../test/val/')
 	# train_model()
 	generate_test_data([0.13637379083,	0.299172949594,	6.65003458262])
+	classification()
 	
 
 
