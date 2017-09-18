@@ -2,7 +2,7 @@
 # @Author: Zhiqiang
 # @Date:   2017-09-18 22:41:33
 # @Last Modified by:   funny_QZQ
-# @Last Modified time: 2017-09-19 00:33:30
+# @Last Modified time: 2017-09-19 00:34:23
 
 # import cv2
 import sys
@@ -74,7 +74,7 @@ def generate_test_data(weight):
 				data_str = data_str + str(i) + ":" + str(item) + " "
 
 			data_str += '\n'
-			file.write(data_str)	
+			test_file.write(data_str)	
 
 
 
