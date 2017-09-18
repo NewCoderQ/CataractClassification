@@ -2,7 +2,7 @@
 # @Author: Zhiqiang
 # @Date:   2017-09-18 22:41:33
 # @Last Modified by:   Zhiqiang
-# @Last Modified time: 2017-09-18 23:09:02
+# @Last Modified time: 2017-09-18 23:10:39
 
 import cv2
 
@@ -21,7 +21,7 @@ def extract_feature(img_path):
 	img_name = raw_input("Please enter the name of the image for classifying(without the ext):")
 	img_path += img_name + '.jpg'
 	print(img_path)
-	test_img = cv2.imread(img_name)
+	test_img = cv2.imread(img_name, 0)
 	print(test_img.shape)
 
 
