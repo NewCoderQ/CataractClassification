@@ -2,13 +2,14 @@
 # @Author: Zhiqiang
 # @Date:   2017-09-18 22:41:33
 # @Last Modified by:   funny_QZQ
-# @Last Modified time: 2017-09-19 00:32:27
+# @Last Modified time: 2017-09-19 00:33:30
 
 # import cv2
 import sys
 sys.path.append('../')
 import svmutil  				# import the libsvm model for svm
 import pickle
+import normalFeatures
 import extractColorFeature		# color
 import extractGLCMFeature		# text-feature
 import extractWaveFeature		# wave
