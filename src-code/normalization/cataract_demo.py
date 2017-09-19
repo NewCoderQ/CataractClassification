@@ -2,7 +2,7 @@
 # @Author: Zhiqiang
 # @Date:   2017-09-18 22:41:33
 # @Last Modified by:   funny_QZQ
-# @Last Modified time: 2017-09-19 00:45:41
+# @Last Modified time: 2017-09-19 10:05:36
 
 # import cv2
 import sys
@@ -23,7 +23,7 @@ def train_model():
 			None
 	'''
 	color, GLCM, wave = svmTrainGetWeight.loadData()
-	svmTrainGetWeight.generateData_4(color, GLCM, wave, [0.13637379083,	0.299172949594,	6.65003458262])
+	svmTrainGetWeight.generateData_4(color, GLCM, wave, [0.0944924579841, 0.0702359843817, 5.20902924753])
 	print('model training...')
 	svmTrainGetWeight.svmTrain_4()
 
@@ -119,8 +119,8 @@ def extract_feature(img_dir):
 
 if __name__ == '__main__':
 	extract_feature('../test/val/')
-	# train_model()
-	generate_test_data([0.13637379083,	0.299172949594,	6.65003458262])
+	train_model()
+	generate_test_data([0.0944924579841, 0.0702359843817, 5.20902924753])
 	classification()
 	
 
